@@ -8,7 +8,9 @@ export default function Auth() {
     await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: `${location.origin}/auth/callback`,
+        // Redirect to home page directly. 
+        // Supabase client will detect the token in the URL hash automatically.
+        redirectTo: `${location.origin}/`, 
       },
     })
   }
